@@ -33,8 +33,6 @@ WORKDIR /root
 RUN echo 'root:root' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config
 RUN mkdir /root/.ssh
-COPY docker-ssh-config/id_rsa /root/.ssh/id_rsa
-RUN chmod 600 /root/.ssh/id_rsa
 EXPOSE 22
 
 CMD ["/bin/zsh"]
